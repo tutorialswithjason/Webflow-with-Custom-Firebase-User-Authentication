@@ -1,0 +1,7 @@
+<script>
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            window.location = "http://webflow-custom-firebase-auth.webflow.io/";
+        }
+    })
+</script>

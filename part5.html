@@ -1,0 +1,20 @@
+<!-- This goes in the before body tag of the sign up page custom code -->
+
+<script>
+    document.getElementById("btnSignUp").addEventListener("click", signUp);
+
+    function signUp () {
+        if (document.getElementById("sign-up-password").value !== document.getElementById("sign-up-password-2").value) {
+            alert("Oops! Your passwords need to match.")
+        }
+        else {
+            var email = document.getElementById("sign-up-email").value;
+            var password = document.getElementById("sign-up-password").value;
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+            .catch(function (error) {
+                var errorMessage = error.message;
+                alert("Oops! " + errorMessage);
+            })
+        }
+    }
+</script>

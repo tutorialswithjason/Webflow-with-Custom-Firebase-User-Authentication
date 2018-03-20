@@ -1,0 +1,12 @@
+<script>
+     firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            console.log("User is signed in!");
+            firebase.auth().currentUser.getIdToken()
+            .then((idToken) => {
+                const payload = JSON.parse(atob(idToken.split('.')[1]));
+                console.log(payload);
+            })
+        }
+    })   
+</script>
